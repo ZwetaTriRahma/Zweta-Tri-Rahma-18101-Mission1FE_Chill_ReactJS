@@ -1,23 +1,36 @@
-import logo from './logo.svg';
+
+// File UTAMA - Router untuk mengatur perpindahan halaman
+
+import React, { useState } from 'react';
 import './App.css';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import BerandaPage from './pages/BerandaPage';
 
 function App() {
+  
+  const [currentPage, setCurrentPage] = useState('login');
+
+  // Fungsi untuk pindah halaman
+  const handleNavigate = (page) => {
+    setCurrentPage(page);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      
+      {currentPage === 'login' && (
+        <LoginPage onNavigate={handleNavigate} />
+      )}
+      
+      {currentPage === 'register' && (
+        <RegisterPage onNavigate={handleNavigate} />
+      )}
+      
+      {currentPage === 'beranda' && (
+        <BerandaPage onNavigate={handleNavigate} />
+      )}
     </div>
   );
 }
