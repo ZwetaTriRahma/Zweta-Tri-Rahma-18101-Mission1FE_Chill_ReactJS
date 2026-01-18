@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 
 function RegisterPage({ onNavigate }) {
@@ -8,25 +9,25 @@ function RegisterPage({ onNavigate }) {
   const [confirmPassword, setConfirmPassword] = useState('');
 
   const handleRegister = () => {
-    // Validasi: Cek apakah field kosong
+    // validasi Cek apakah field kosong
     if (!username || !password || !confirmPassword) {
       alert('Semua field harus diisi!');
       return;
     }
 
-    // Validasi: Username minimal 3 karakter
+    // validasi Username minimal 3 karakter
     if (username.length < 3) {
       alert('Username minimal 3 karakter!');
       return;
     }
 
-    // Validasi: Password minimal 6 karakter
+    // validasi Password minimal 6 karakter
     if (password.length < 6) {
       alert('Password minimal 6 karakter!');
       return;
     }
 
-    // Validasi: Password dan Confirm Password harus sama
+    // validasi password dan Confirm Password harus sama
     if (password !== confirmPassword) {
       alert('Password dan Confirm Password tidak sama!');
       return;
@@ -38,7 +39,7 @@ function RegisterPage({ onNavigate }) {
   };
 
   const handleGoogleRegister = () => {
-    alert('Fitur Sign in with Google coming soon karena belum masuk materi backend');
+    alert('Fitur Sign in with Google membutuhkan backend server. Coming Soon! 🚀');
   };
 
   return (
@@ -102,7 +103,7 @@ function RegisterPage({ onNavigate }) {
           
           <p className="login-text">
             Already have an account? 
-            <a onClick={() => onNavigate('login')}> Login</a>
+            <a href="#" onClick={(e) => { e.preventDefault(); onNavigate('login'); }}> Login</a>
           </p>
           
           <button className="btn" onClick={handleRegister}>

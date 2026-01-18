@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 
 function LoginPage({ onNavigate }) {
@@ -6,19 +7,19 @@ function LoginPage({ onNavigate }) {
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    // Validasi: Cek apakah field kosong
+    // validasi cek apakah field kosong
     if (!username || !password) {
       alert('Username dan Password tidak boleh kosong!');
       return;
     }
 
-    // Validasi: Username minimal 3 karakter
+    // alidasi username minimal 3 karakter
     if (username.length < 3) {
       alert('Username minimal 3 karakter!');
       return;
     }
 
-    // Validasi: Password minimal 6 karakter
+    // validasi password minimal 6 karakter
     if (password.length < 6) {
       alert('Password minimal 6 karakter!');
       return;
@@ -30,7 +31,7 @@ function LoginPage({ onNavigate }) {
   };
 
   const handleGoogleLogin = () => {
-    alert('Fitur Login with Google coming soon karena belum masuk materi backend');
+    alert('Fitur Login with Google membutuhkan backend server. Coming Soon! 🚀');
   };
 
   return (
@@ -77,7 +78,7 @@ function LoginPage({ onNavigate }) {
           
           <p className="login-text">
             Don't have an account? 
-            <a onClick={() => onNavigate('register')}> Sign In</a>
+            <a href="#" onClick={(e) => { e.preventDefault(); onNavigate('register'); }}> Sign In</a>
           </p>
           
           <button className="btn" onClick={handleLogin}>

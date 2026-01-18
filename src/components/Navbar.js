@@ -1,4 +1,5 @@
 
+
 import React, { useState } from 'react';
 
 function Navbar({ onNavigate }) {
@@ -18,9 +19,9 @@ function Navbar({ onNavigate }) {
       />
       
       <div className="menu">
-        <a>Series</a>
-        <a>Film</a>
-        <a>Daftar Saya</a>
+        <a href="#">Series</a>
+        <a href="#">Film</a>
+        <a href="#">Daftar Saya</a>
       </div>
       
       {/* Profile dengan Dropdown */}
@@ -33,16 +34,16 @@ function Navbar({ onNavigate }) {
         />
         <span className="dropdown-arrow">▼</span>
         
-        {/* Logout Button */}
+        {/* Dropdown Menu */}
         {showDropdown && (
           <div className="profile-dropdown">
-            <a onClick={() => alert('Fitur Profile Coming Soon!')}>
+            <a href="#" onClick={(e) => { e.preventDefault(); alert('Fitur Profile Coming Soon!'); }}>
               👤 Profile
             </a>
-            <a onClick={() => alert('Fitur Settings Coming Soon!')}>
+            <a href="#" onClick={(e) => { e.preventDefault(); alert('Fitur Settings Coming Soon!'); }}>
               ⚙️ Settings
             </a>
-            <a className="logout" onClick={handleLogout}>
+            <a href="#" className="logout" onClick={(e) => { e.preventDefault(); handleLogout(); }}>
               🚪 Logout
             </a>
           </div>
